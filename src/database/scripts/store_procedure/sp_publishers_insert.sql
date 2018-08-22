@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION public.sp_publishers_insert(
-    pub_name varchar(4),
+    pub_name varchar(40),
     pub_city varchar(20),
     pub_state bpchar(2),
     pub_country varchar(30)
