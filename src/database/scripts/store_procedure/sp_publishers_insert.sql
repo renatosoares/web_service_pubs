@@ -6,9 +6,7 @@ CREATE OR REPLACE FUNCTION public.sp_publishers_insert(
 ) RETURNS void LANGUAGE sql
 AS
 $function$
-    INSERT INTO public.publishers (
-        name, city, state, country
-    ) VALUES (
-        pub_name, pub_city, pub_state, pub_country
-    )
+    INSERT INTO public.publishers
+    ("name", city, state, country)
+    VALUES(pub_name, pub_city, pub_state, pub_country);
 $function$

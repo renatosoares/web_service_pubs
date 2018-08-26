@@ -4,6 +4,6 @@ CREATE OR REPLACE FUNCTION public.sp_publishers_select(
 AS
 $function$
 	SELECT * FROM public.publishers
-    WHERE name LIKE '%' || pub_name || '%';
+    WHERE "name" LIKE '%' || pub_name || '%';
 $function$
 LANGUAGE sql
