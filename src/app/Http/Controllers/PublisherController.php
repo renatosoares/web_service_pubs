@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Publisher;
 use Illuminate\Http\Request;
 
 class PublisherController extends Controller
@@ -23,7 +24,7 @@ class PublisherController extends Controller
      */
     public function create()
     {
-        //
+        return view('publisher.create');
     }
 
     /**
@@ -40,10 +41,10 @@ class PublisherController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Publisher  $publisher
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Publisher $publisher)
     {
         //
     }
@@ -51,10 +52,10 @@ class PublisherController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Publisher  $publisher
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Publisher $publisher)
     {
         //
     }
@@ -63,10 +64,10 @@ class PublisherController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Publisher  $publisher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Publisher $publisher)
     {
         //
     }
@@ -74,10 +75,10 @@ class PublisherController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Publisher  $publisher
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Publisher $publisher)
     {
         //
     }
