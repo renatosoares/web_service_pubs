@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Publisher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PublisherController extends Controller
 {
@@ -35,7 +36,12 @@ class PublisherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement('SELECT public.sp_publishers_insert(:pub_name, :pub_city, :pub_state, :pub_country)', [
+            'pub_name' => $request->name,
+            'pub_city' => $request->city,
+            'pub_state' => $request->state,
+            'pub_country' => $request->country,
+        ]);
     }
 
     /**
