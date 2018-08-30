@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Publisher extends Model
 {
@@ -16,8 +17,13 @@ class Publisher extends Model
      *
      * @return void
      */
-    public function scopeStore(string $name, string $city, string $state, string $country): void
+    public function store(string $name, string $city, string $state, string $country): void
     {
-        // TODO
+        DB::statement('SELECT public.sp_publishers_insert(:pub_name, :pub_city, :pub_state, :pub_country)', [
+            'pub_name' => $name,
+            'pub_city' => $city,
+            'pub_state' => $state,
+            'pub_country' => $country,
+        ]);
     }
 }

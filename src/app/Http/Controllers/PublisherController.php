@@ -1,13 +1,32 @@
 <?php
 
+/**
+ * @author Soares
+ */
+
 namespace App\Http\Controllers;
 
 use App\Publisher;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
+/**
+ * CRUD
+ */
 class PublisherController extends Controller
 {
+    /** @var Publisher */
+    protected $publisher;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param Publisher $publisher
+     */
+    public function __construct(Publisher $publisher)
+    {
+        $this->publisher = $publisher;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +34,6 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -31,61 +49,57 @@ class PublisherController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        DB::statement('SELECT public.sp_publishers_insert(:pub_name, :pub_city, :pub_state, :pub_country)', [
-            'pub_name' => $request->name,
-            'pub_city' => $request->city,
-            'pub_state' => $request->state,
-            'pub_country' => $request->country,
-        ]);
+        $this->publisher->store($request->name, $request->city, $request->state, $request->country);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Publisher  $publisher
+     * @param \App\Publisher $publisher
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Publisher $publisher)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Publisher  $publisher
+     * @param \App\Publisher $publisher
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Publisher $publisher)
     {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Publisher  $publisher
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Publisher           $publisher
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Publisher $publisher)
     {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Publisher  $publisher
+     * @param \App\Publisher $publisher
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Publisher $publisher)
     {
-        //
     }
 }

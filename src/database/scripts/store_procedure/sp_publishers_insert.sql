@@ -7,6 +7,6 @@ CREATE OR REPLACE FUNCTION public.sp_publishers_insert(
 AS
 $function$
     INSERT INTO public.publishers
-    ("name", city, state, country)
-    VALUES(pub_name, pub_city, pub_state, pub_country);
+    ("name", "city", "state", "country", "created_at", "updated_at")
+    VALUES(pub_name, pub_city, pub_state, pub_country, now(), now());
 $function$

@@ -5,6 +5,6 @@ AS
 $function$
 
     DELETE FROM public.publishers
-    WHERE id = pub_id
+    WHERE "id" = pub_id
 
 $function$

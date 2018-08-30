@@ -8,6 +8,6 @@ CREATE OR REPLACE FUNCTION public.sp_publishers_update(
 AS
 $function$
     UPDATE public.publishers
-    SET "name"=pub_name, city=pub_city, state=pub_state, country=''
+    SET "name"=pub_name, "city"=pub_city, "state"=pub_state, "country"=pub_country, "updated_at"=now()
     WHERE id=pub_id;
 $function$
