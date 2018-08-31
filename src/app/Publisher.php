@@ -42,4 +42,18 @@ class Publisher extends Model
             ])
         )->first()->sp_publishers_select;
     }
+
+    /**
+     * Destroy by id
+     *
+     * @param string $id
+     *
+     * @return void
+     */
+    public function del(string $id): void
+    {
+        Db::statement('select public.sp_publishers_delete(:pub_id);', [
+            'pub_id' => $id,
+        ]);
+    }
 }
