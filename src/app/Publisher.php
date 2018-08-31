@@ -26,4 +26,20 @@ class Publisher extends Model
             'pub_country' => $country,
         ]);
     }
+
+    /**
+     * Search by name
+     *
+     * @param string $name
+     *
+     * @return string
+     */
+    public function search(string $name): string
+    {
+        return $this->hydrate(
+            DB::select('SELECT public.sp_publishers_select(:pub_name)', [
+                'pub_name' => $name,
+            ])
+        )->first()->sp_publishers_select;
+    }
 }

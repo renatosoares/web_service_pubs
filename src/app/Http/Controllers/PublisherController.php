@@ -30,10 +30,13 @@ class PublisherController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     *
+     * @return string
      */
-    public function index()
+    public function index(Request $request): string
     {
+        return $this->publisher->search($request->name);
     }
 
     /**
