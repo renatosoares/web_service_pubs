@@ -30,6 +30,15 @@ psql --host=127.0.0.1 --port=5432 --username=postgres --password --echo-all --db
 psql --host=127.0.0.1 --port=5432 --username=postgres --password --echo-all --dbname=pubs --file=database/scripts/store_procedure/sp_publishers_delete.sql
 ```
 
+#### End points
+
+|Verb       |   URI                         |   Action      |
+| --------- | ----------------------------- | ------------- |
+|GET        |   /publishers?name={value}    |   index       |
+|POST       |   /publishers                 |   store       |
+|PUT/PATCH  |   /publishers/{id}            |   update      |
+|DELETE     |   /publishers/{id}            |   destroy     |
+
 Application content for academic purposes
 
 #### :mortar_board:

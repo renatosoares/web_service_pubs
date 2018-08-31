@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * @author Soares
  */
@@ -10,7 +12,7 @@ use App\Publisher;
 use Illuminate\Http\Request;
 
 /**
- * CRUD
+ * Serves the content of publications
  */
 class PublisherController extends Controller
 {
@@ -55,12 +57,12 @@ class PublisherController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Publisher           $publisher
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Publisher $publisher)
+    public function update(Request $request, string $id)
     {
+        $this->publisher->modernize($id, $request->name, $request->city, $request->state, $request->country);
     }
 
     /**
