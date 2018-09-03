@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group([
+    'middleware' => ['api']
+], function ($router) {
+     Route::apiResource('/publishers','PublisherController');
 });
-
-Route::resource('publishers', 'PublisherController');
