@@ -39,7 +39,7 @@ class Publisher extends Model
      *
      * @return string
      */
-    public function search(string $name): string
+    public function search(string $name): ?string
     {
         return $this->hydrate(
             DB::select('SELECT public.sp_publishers_select(:pub_name)', [

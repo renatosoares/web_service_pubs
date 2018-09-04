@@ -36,7 +36,7 @@ class PublisherController extends Controller
      *
      * @return string
      */
-    public function index(Request $request): string
+    public function index(Request $request): ?string
     {
         return $this->publisher->search($request->name);
     }
