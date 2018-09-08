@@ -54,6 +54,16 @@ class PublisherController extends Controller
     }
 
     /**
+     * Show the editing the specified resource.
+     *
+     * @param  \App\Publisher  $publisher
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return $this->publisher->find($id);
+    }
+    /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
